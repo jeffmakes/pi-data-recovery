@@ -58,6 +58,18 @@ Here's a one-pager that shows the points on the Pi's PCB where the eMMC pads can
 Once the anaesthetic wore off, the patient looked like this
 ![View of the finished CM4 with SD adapter soldered in place](images/soldering.jpg?raw=1)
 In the centre, stuck to the eMMC with some double-sided tape, is a 8x2 piece of matrix board. This is simply there to provide strain relief. I used some 0.1mm diameter enamelled wire to connect to the eMMC signals on the Pi. It worked nicely. You should use the narrowest stuff you can get, otherwise you'll pull the pads off the board.
-Here's a view down the microscope:
+
+It's a 0.5mm pitch BGA, so you'll need *tons of light* and some magnification. Here's a view down the microscope:
 ![Microscope view of the wires soldered to the SoC pads](images/microscope.jpg?raw=1)
+
+For the SD connections, I took a uSD-to-SD adapter, carved a hole to expose the uSD contacts, and soldered on eight pieces of 0.3mm Kynar wire. I potted the whole assemly in some 5-minute epoxy to prevent adjacent pins from shorting together. They were surprisingly mobile. Once this SD-to-wire assembly was cured, I soldered it onto the matrix board.
+
+There are many ways to skin a cat, and you could definitely make something jankier that would still do the job. If I was in more of a hurry I would have just sacrificed my USB-SD reader and soldered wires from its PCB straight to the Pi. The area where you absolutely must not cut corners is the strain relief - if you peel off a track you'll find the whole project rapidly turning pear-shaped.
+
+## The pay-off
+Here's where I started to breathe a sigh of relief - happy bytes flowing off the eMMC and into my USB port. 
+![Downloading data from the CM4 with a USB SD reader](images/uploading.jpg?raw=1)
+Note again: more strain relief.
+Also, it probably goes without saying, immediately take a full image of the eMMC using `dd` or the tool of your choice. You don't want to be buggering about browsing the files on the chip then have it get hit by an asteroid before you get all the data off. This is a trawling, not spear-fishing - archive the whole thing, and do the forensics afterwards in comfort.
+
 
