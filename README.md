@@ -42,8 +42,13 @@ A normal SD card has a 4-bit data bus, an eMMC chip has an 8-bit one, but, lucki
 | VCC    | 1.8V / 3V power rail for memory controller |
 | VCCF   | 3V power rail for flash memory |
 | GND    | Ground |
-| CMD    | Data direction |
+| CMD    | Data direction indicator |
 | CLK    | Clock signal |
 | D0     | 1-bit data line |
 
+You can safely connect VCC and VCCF, both can handle 3V. There are 1.8V access modes, but they require negotiation from the controller. I've only spent a couple of minutes reading about this, though, so if you're recovering a million BTC hardware wallet I suggest you test on some disposable hardware first.
 
+With the chips off, looking down the microscope and working with the multimeter in continuity mode, it only took a couple of minutes to beep out the signals.
+
+Here's a one-pager that shows the points on the Pi's PCB where the eMMC pads can be accessed without removing the eMMC itself. If you don't want to, you *might not* need to actually remove the SoC. You'll see there are vias or portions of accessable traces where you could solder on wires instead of using the SoC pads. It won't be much easier than soldering to the SoC pads, since they're about the same size as the vias, but it may be easier if you don't have a hot air tool.
+![One-page description of the required connections](images/wiring.jpg?raw=1)
