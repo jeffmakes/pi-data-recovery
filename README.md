@@ -32,4 +32,4 @@ After all that, I had this sitting on my bench.
 ### Tracing the signals
 Next up, I needed the pinout for the eMMC. The part on my CM4 is a KLM8G1GETF. I found the datasheet on a dodgy phone repair site, but it doesn't matter if you can't get the exact datasheet for your part - eMMC's in the same package have compatible pinouts. [I've mirrored the datasheet here.](docs/KLMxGxJENB-B041-1.0.pdf?raw=1) 
 Here's a snap of the pinout from the datasheet:
-[!eMMC pinout diagram](images/emmc-pinout.png?raw=1)]
+![eMMC pinout diagram](images/emmc-pinout.png?raw=1)]
