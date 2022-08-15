@@ -46,9 +46,18 @@ A normal SD card has a 4-bit data bus, an eMMC chip has an 8-bit one, but, lucki
 | CLK    | Clock signal |
 | D0     | 1-bit data line |
 
-You can safely connect VCC and VCCF, both can handle 3V. There are 1.8V access modes, but they require negotiation from the controller. I've only spent a couple of minutes reading about this, though, so if you're recovering a million BTC hardware wallet I suggest you test on some disposable hardware first.
+You can safely connect VCC and VCCF together, both can handle 3V. There are 1.8V access modes, but they require negotiation from the controller. I've only spent a couple of minutes reading about this, though, so if you're recovering a million BTC hardware wallet I suggest you test on some disposable hardware first.
 
 With the chips off, looking down the microscope and working with the multimeter in continuity mode, it only took a couple of minutes to beep out the signals.
 
-Here's a one-pager that shows the points on the Pi's PCB where the eMMC pads can be accessed without removing the eMMC itself. If you don't want to, you *might not* need to actually remove the SoC. You'll see there are vias or portions of accessable traces where you could solder on wires instead of using the SoC pads. It won't be much easier than soldering to the SoC pads, since they're about the same size as the vias, but it may be easier if you don't have a hot air tool.
+Here's a one-pager that shows the points on the Pi's PCB where the eMMC pads can be accessed without removing the eMMC itself. If you don't want to, you *might not* need to actually remove the SoC. You'll see there are vias or portions of accessable traces where you could solder on wires instead of using the SoC pads. It won't be much easier than soldering to the SoC pads, since they're about the same size as the vias, but it may be an option if you don't have a hot air tool. That said, the SoC might interfere with the signalling, particularly if it's toasted, so I'd recommend removing the SoC if you can.
+
 ![One-page description of the required connections](images/wiring.jpg?raw=1)
+
+## The surgery
+Once the anaesthetic wore off, the patient looked like this
+![View of the finished CM4 with SD adapter soldered in place](images/soldering.jpg?raw=1)
+In the centre, stuck to the eMMC with some double-sided tape, is a 8x2 piece of matrix board. This is simply there to provide strain relief. I used some 0.1mm diameter enamelled wire to connect to the eMMC signals on the Pi. It worked nicely. You should use the narrowest stuff you can get, otherwise you'll pull the pads off the board.
+Here's a view down the microscope:
+![Microscope view of the wires soldered to the SoC pads](images/microscope.jpg?raw=1)
+
