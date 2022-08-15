@@ -10,4 +10,17 @@ To avoid cross-compilation I had been doing quite a lot of work on the Pi itself
 ## The Solution
 Luckily, eMMC chips are electrically compatible with [micro]SD cards, so all we need to do is convert the dead CM4 into an SD card. What follows is a description of how I figured out how to do it, and a guide for you to follow if you find yourself in a similar situation.
 
+## Gathering the information
+In principle, all we need to know for this hack is the locations on the CM4 board of each of the eMMC bus signals. Once those are known, we can connect them to something that can read SD cards, e.g. a USB SD reader and suck out the data.
+
+First I needed a sacrificial CM4. Luckily one was available (see above) so no problems there. I removed various chips to get access to the signals, then traced them out.
+
+I've done this once, so you don't have to, but I'll include a description of my method because it could be applied to other Pis, or other SBC's for that matter.
+
+I don't have an x-ray machine, so I had to probe around with a multimeter like a caveman. Where to start? Well, we know the signals need to get to the pads of the eMMC, so I desoldered that with a hot-air reflow station. 
+
+The signals start at the SoC, so I removed the head spreader by gently prying it off with a scalpel, then removed the SoC with hot air. Be patient when doing this - the part is glued down so it really takes some heat before it lets go. On my first board I got a bit impatient, started prying with a scalpel, slipped and mashed a load of pads. Luckily none that I needed to access.
+
+Next I removed the PMIC - I knew it was dead, so it would probably interfere with the power rails.
+
 
