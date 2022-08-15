@@ -22,7 +22,7 @@ I've done this once, so you don't have to do it yourself or sacrifice any hardwa
 ### Clearing the decks
 I don't have an x-ray machine, so I had to probe around with a multimeter like a caveman. Where to start? Well, we know the signals need to get to the pads of the eMMC, so I desoldered that with a hot-air reflow station. 
 
-The signals start at the SoC, so I removed the head spreader by gently prying it off with a scalpel, then removed the SoC with hot air. Be patient when doing this - the part is glued down so it really takes some heat before it lets go. On my first board I got a bit impatient, started prying with a scalpel, slipped and mashed a load of pads. Luckily none that I needed to access.
+The signals start at the SoC, so I removed the head spreader by gently prying it off with a scalpel, then removed the SoC with hot air. Be patient when doing this - the part has underfill glue, so it really takes some heat before it lets go. On my first board I got a bit impatient, started prying with a scalpel, slipped and mashed a load of pads. Luckily none that I needed to access.
 
 Next I removed the PMIC - I knew it was dead, so it would probably interfere with the power rails.
 
@@ -30,4 +30,4 @@ After all that, I had this sitting on my bench.
 [![This is an image](images/parts-removed.jpg)](https://raw.githubusercontent.com/jeffmakes/pi-data-recovery/main/images/parts-removed.jpg)
 
 ### Tracing the signals
-Next up, I needed the pinout for the eMMC. The part on my CM4 is a KLM8G1GETF. I found the datasheet on a dodgy phone repair site, but it doesn't matter if you can't get the exact datasheet for your part - eMMC's in the same package have compatible pinouts. [I've mirrored the datasheet here.](docs/KLMxGxJENB-B041-1.0.pdf) 
+Next up, I needed the pinout for the eMMC. The part on my CM4 is a KLM8G1GETF. I found the datasheet on a dodgy phone repair site, but it doesn't matter if you can't get the exact datasheet for your part - eMMC's in the same package have compatible pinouts. [I've mirrored the datasheet here.](docs/KLMxGxJENB-B041-1.0.pdf?raw=1) 
