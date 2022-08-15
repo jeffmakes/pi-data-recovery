@@ -27,9 +27,23 @@ The signals start at the SoC, so I removed the head spreader by gently prying it
 Next I removed the PMIC - I knew it was dead, so it would probably interfere with the power rails.
 
 After all that, I had this sitting on my bench.
-[![This is an image](images/parts-removed.jpg)](https://raw.githubusercontent.com/jeffmakes/pi-data-recovery/main/images/parts-removed.jpg)
+[![Pi CM4 with chips removed](images/parts-removed.jpg)](https://raw.githubusercontent.com/jeffmakes/pi-data-recovery/main/images/parts-removed.jpg)
 
 ### Tracing the signals
 Next up, I needed the pinout for the eMMC. The part on my CM4 is a KLM8G1GETF. I found the datasheet on a dodgy phone repair site, but it doesn't matter if you can't get the exact datasheet for your part - eMMC's in the same package have compatible pinouts. [I've mirrored the datasheet here.](docs/KLMxGxJENB-B041-1.0.pdf?raw=1) 
+
 Here's a snap of the pinout from the datasheet:
-![eMMC pinout diagram](images/emmc-pinout.png?raw=1)]
+![eMMC pinout diagram](images/emmc-pinout.png?raw=1)
+
+A normal SD card has a 4-bit data bus, an eMMC chip has an 8-bit one, but, luckily, both can operate in a single-bit mode. That means we only need to connect these six signals from the Pi's eMMC to the SD reader:
+
+| Signal | Function |
+| ------ | -------- |
+| VCC    | 1.8V / 3V power rail for memory controller |
+| VCCF   | 3V power rail for flash memory |
+| GND    | Ground |
+| CMD    | Data direction |
+| CLK    | Clock signal |
+| D0     | 1-bit data line |
+
+
