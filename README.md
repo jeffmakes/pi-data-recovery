@@ -23,6 +23,6 @@ The signals start at the SoC, so I removed the head spreader by gently prying it
 
 Next I removed the PMIC - I knew it was dead, so it would probably interfere with the power rails.
 
-![This is an image](images/parts-removed.jpg)
+![This is an image](images/parts-removed.jpg)(https://raw.githubusercontent.com/jeffmakes/pi-data-recovery/main/images/parts-removed.jpg)
 
 
