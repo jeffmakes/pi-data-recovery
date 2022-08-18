@@ -52,7 +52,7 @@ You can safely connect VCC and VCCF together, both can handle 3V. There are 1.8V
 
 With the chips off, looking down the microscope and working with the multimeter in continuity mode, it only took a couple of minutes to beep out the signals.
 
-Here's a giant one-pager that shows the points on the Pi's PCB where the eMMC pads can be accessed without removing the eMMC itself. If you don't want to, you *might not* need to actually remove the SoC. You'll see there are vias or portions of accessable traces where you could solder on wires instead of using the SoC pads. It won't be much easier than soldering to the SoC pads, since they're about the same size as the vias, but it may be an option if you don't have a hot air tool. That said, the SoC might interfere with the signalling, particularly if it's toasted, so I'd recommend removing the SoC if you can.
+Here's a giant one-pager that shows the points on the Pi's PCB where the eMMC pads can be accessed without removing the eMMC itself. If you don't want to, you *might not* need to actually remove the SoC. You'll see there are vias or portions of accessable traces where you could solder on wires instead of using the SoC pads. It won't be much easier than soldering to the SoC pads, since they're about the same size as the vias, but it may be an option if you don't have a hot air tool. That said, the SoC might interfere with the signalling, particularly if it's toasted, and if you're on a different platform there's the chance some tracks might be totally hidden on an inner layer. Generally, I'd recommend removing the SoC if you can. 
 
 ![One-page description of the required connections](images/wiring.jpg?raw=1)
 
